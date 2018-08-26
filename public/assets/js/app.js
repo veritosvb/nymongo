@@ -38,24 +38,31 @@ $(".delete").on("click", function() {
     })
 });
 
+$(".openNote").on("click", function() {
+    var thisId = $(this).attr("data-id");
+    $(".noteModal").modal("show");
+    $(".saveNote").attr("data-id",thisId);
+    $(".deleteNote").attr("data-id",thisId);
+});
+
 //Handle Save Note button
 $(".saveNote").on("click", function() {
     var thisId = $(this).attr("data-id");
-    if (!$("#noteText" + thisId).val()) {
+    if (!$("#noteText").val()) {
         alert("please enter a note to save")
     }else {
       $.ajax({
             method: "POST",
             url: "/notes/save/" + thisId,
             data: {
-              text: $("#noteText" + thisId).val()
+              text: $("#noteText").val()
             }
           }).done(function(data) {
               // Log the response
               console.log(data);
               // Empty the notes section
-              $("#noteText" + thisId).val("");
-              $(".modalNote").modal("hide");
+              $("#noteText").val("");
+              $(".noteModal").modal("hide");
               window.location = "/saved"
           });
     }

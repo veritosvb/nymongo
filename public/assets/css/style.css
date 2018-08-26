@@ -70,39 +70,7 @@ html {
   .article-container {
     padding-bottom: 25px;
   }
-  
 
-  
-  .card .card-header {
-    background-color: #2196f3;
-    position: relative;
-    padding-top: 30px;
-    padding-bottom: 30px;
-  }
-  
-  .card .card-header h3 {
-    color: white;
-  }
-  
-  .card .card-header .btn {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-  }
-  
-  .card .card-header .btn.delete {
-    right: 160px;
-  }
-  
-  .card .card-body {
-    font-size: 16px;
-  }
-  
-  .card .card-header .article-link {
-    color: white;
-    display: inline-block;
-    width: 80%;
-  }
   
   .footer > .container > p {
     position: absolute;
