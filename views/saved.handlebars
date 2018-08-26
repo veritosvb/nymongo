@@ -13,7 +13,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link saveNote" href="/saved">Saved Articles</a>
+        <a class="nav-link save" href="/saved">Saved Articles</a>
       </li>
       <li class="nav-item">
         <a class="btn btn-danger scrape-new">SCRAPE NEW ARTICLES!</a>
@@ -39,21 +39,27 @@
  <div class="col-md-12">
         {{#if article}}
             {{#each article}}
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4>{{this.title}}</h4>
+                <div class="card mb-3">
+                    <div class="card-heading bg-primary text-light">
+                       <div class="row m-2">
+                         <div class="col-10 mt-3">
+                           <h2>{{this.title}}</h2>
+                        </div>
+                    <div class="col-2 mt-1">
+                        <button type="button" class="btn btn-danger delete" data-id={{this._id}}>Delete</button>
+                        <button type="button" class="btn btn-success saveNote" data-id={{this._id}}>Add Note</button>                    </div>
+                  </div>
                     </div>
-                    <div class="panel-body">
+                    <div class="card-body">
                         <p> {{this.summary}}</p>
                         <a href={{this.link}} target="_blank">{{this.link}}</a>
-                        <br><br>
-                        <button type="button" class="btn btn-danger delete" data-id={{this._id}}>Delete</button>
+                        <br>
                     </div>
                 </div>
             {{/each}}
         {{else}}
-        <div class="panel panel-default">
-            <div class="panel-body">
+        <div class="card">
+            <div class="card-body">
                 <h4>You have no saved articles.</h4>
             </div>
         </div>
